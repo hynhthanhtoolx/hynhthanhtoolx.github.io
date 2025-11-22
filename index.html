@@ -1,0 +1,247 @@
+&#38;#60;!DOCTYPE html&#38;#62;
+&#38;#60;html lang="vi"&#38;#62;
+&#38;#60;head&#38;#62;
+&#38;#60;meta charset="UTF-8"&#38;#62;
+&#38;#60;title&#38;#62;Hu&#38;#7923;nh Thanh &#38;#221; Pro&#38;#60;/title&#38;#62;
+&#38;#60;script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"&#38;#62;&#38;#60;/script&#38;#62;
+&#38;#60;style&#38;#62;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    background: #000;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* Canvas full screen cho particles */
+#stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #7289da, 0 0 30px #99aab5, 0 0 40px #7289da;
+    animation: neonText 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonText {
+    from { text-shadow: 0 0 10px #fff,0 0 20px #7289da,0 0 30px #99aab5,0 0 40px #7289da; }
+    to { text-shadow: 0 0 20px #fff,0 0 30px #99aab5,0 0 40px #7289da,0 0 60px #99aab5; }
+}
+
+p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin-bottom: 30px;
+    text-shadow: 0 0 5px #000;
+}
+
+.button {
+    background: linear-gradient(45deg,#7289da,#99aab5,#2c2f33);
+    color: #fff;
+    padding: 14px 36px;
+    border: none;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin: 5px;
+    box-shadow: 0 0 15px #7289da,0 0 25px #99aab5;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #7289da,0 0 35px #99aab5,0 0 45px #2c2f33;
+}
+
+.button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px #7289da,0 0 15px #99aab5;
+}
+
+.custom-image {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 25px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #fff,0 0 25px #7289da,0 0 35px #99aab5;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Social Buttons */
+.social {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 10px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    cursor: pointer;
+}
+
+.social-btn i {
+    margin-right: 8px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    transform: skewX(-20deg);
+    transition: all 0.5s ease;
+}
+
+.social-btn:hover::before { left: 100%; }
+.social-btn:hover i { transform: scale(1.3); }
+.social-btn:hover { transform: scale(1.1); }
+.social-btn:active { transform: scale(0.95); }
+
+.social-btn.facebook { background: linear-gradient(135deg,#3b5998,#4c70ba); box-shadow:0 0 10px #3b5998,0 0 20px #4c70ba; }
+.social-btn.youtube { background: linear-gradient(135deg,#ff0000,#ff5555); box-shadow:0 0 10px #ff0000,0 0 20px #ff5555; }
+.social-btn.discord { background: linear-gradient(135deg,#7289da,#99aab5); box-shadow:0 0 10px #7289da,0 0 20px #99aab5; }
+.social-btn.tiktok { background: linear-gradient(135deg,#69C9D0,#000000); box-shadow:0 0 10px #69C9D0,0 0 20px #000000; }
+
+/* Khung gi&#38;#7899;i thi&#38;#7879;u */
+.intro-box {
+    margin-top: 30px;
+    background: rgba(50,50,50,0.6);
+    border: 2px solid #7289da;
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 600px;
+    color: #fff;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(114,137,218,0.5);
+}
+&#38;#60;/style&#38;#62;
+&#38;#60;/head&#38;#62;
+&#38;#60;body&#38;#62;
+
+&#38;#60;canvas id="stars"&#38;#62;&#38;#60;/canvas&#38;#62;
+
+&#38;#60;img src="https://cdn.discordapp.com/attachments/1441411223018016961/1441868111883272276/oz-oz-yarimasu.gif?ex=69235bd2&#38;#38;is=69220a52&#38;#38;hm=e124c5ad1dc06698408e21093d1256e7233137e5e8365f69545d82bf5497a930&#38;#38;" alt="Custom Image" class="custom-image"&#38;#62;
+&#38;#60;h1&#38;#62;Ch&#38;#224;o m&#38;#7915;ng &#38;#273;&#38;#7871;n v&#38;#7899;i Hu&#38;#7923;nh Thanh &#38;#221;!&#38;#60;/h1&#38;#62;
+&#38;#60;p&#38;#62;K&#38;#7871;t n&#38;#7889;i, t&#38;#432;&#38;#417;ng t&#38;#225;c v&#38;#224; qu&#38;#7843;n l&#38;#253; server d&#38;#7877; d&#38;#224;ng h&#38;#417;n bao gi&#38;#7901; h&#38;#7871;t.&#38;#60;/p&#38;#62;
+
+&#38;#60;div&#38;#62;
+    &#38;#60;a href="https://discord.com/oauth2/authorize?client_id=1440981010870177874" class="button"&#38;#62;M&#38;#7901;i Bot&#38;#60;/a&#38;#62;
+&#38;#60;/div&#38;#62;
+
+&#38;#60;div class="social"&#38;#62;
+    &#38;#60;a href="https://www.facebook.com/profile.php?id=61583849677441" target="_blank" class="social-btn facebook"&#38;#62;&#38;#60;i class="fab fa-facebook-f"&#38;#62;&#38;#60;/i&#38;#62; Facebook&#38;#60;/a&#38;#62;
+    &#38;#60;a href="https://youtube.com/@huynhthanhy.06?si=CdyLnwUK2jbEBmSV" target="_blank" class="social-btn youtube"&#38;#62;&#38;#60;i class="fab fa-youtube"&#38;#62;&#38;#60;/i&#38;#62; YouTube&#38;#60;/a&#38;#62;
+    &#38;#60;a href="https://discord.com/users/1437417597925593200" target="_blank" class="social-btn discord"&#38;#62;&#38;#60;i class="fab fa-discord"&#38;#62;&#38;#60;/i&#38;#62; Discord&#38;#60;/a&#38;#62;
+    &#38;#60;a href="https://www.tiktok.com/@kaykingsaov.master" target="_blank" class="social-btn tiktok"&#38;#62;&#38;#60;i class="fab fa-tiktok"&#38;#62;&#38;#60;/i&#38;#62; TikTok&#38;#60;/a&#38;#62;
+&#38;#60;/div&#38;#62;
+
+&#38;#60;!-- Khung gi&#38;#7899;i thi&#38;#7879;u --&#38;#62;
+&#38;#60;div class="intro-box"&#38;#62;
+    &#38;#60;h2&#38;#62;Gi&#38;#7899;i thi&#38;#7879;u&#38;#60;/h2&#38;#62;
+    &#38;#60;p&#38;#62;K&#38;#668;&#38;#244;&#38;#628;&#38;#610; &#38;#7428;&#38;#668;&#38;#618; &#38;#671;&#38;#224; &#38;#665;&#38;#7439;&#38;#7451;, &#38;#272;&#38;#226;&#38;#655; &#38;#671;&#38;#224; &#38;#7451;&#38;#640;&#38;#7907; &#38;#7451;&#38;#668;&#38;#7452;&#38;#777; &#38;#7429;&#38;#7845;&#38;#7428; &#38;#671;&#38;#7921;&#38;#7428; &#38;#7428;&#38;#7911;&#38;#7424; &#38;#665;&#38;#7841;&#38;#628;!&#38;#60;/p&#38;#62;
+    &#38;#60;ul&#38;#62;
+        &#38;#60;li&#38;#62;🎮 G&#38;#7424;&#38;#7437;&#38;#7431; &#38;#7428;&#38;#7920;&#38;#7428; &#38;#7428;&#38;#668;&#38;#7844;&#38;#7451;, &#38;#7435;&#38;#668;&#38;#244;&#38;#628;&#38;#610; &#38;#671;&#38;#7439; &#38;#628;&#38;#668;&#38;#224;&#38;#7437; &#38;#7428;&#38;#668;&#38;#225;&#38;#628;&#38;#60;/li&#38;#62;
+        &#38;#60;li&#38;#62;🎵 N&#38;#668;&#38;#7841;&#38;#7428; &#38;#7428;&#38;#7920;&#38;#7428; &#38;#7428;&#38;#668;&#38;#618;&#38;#671;&#38;#671;, &#38;#7428;&#38;#668;&#38;#7881; &#38;#7428;&#38;#7847;&#38;#628; &#38;#7456;&#38;#224;i &#38;#671;&#38;#7878;&#38;#628;&#38;#668; &#38;#7429;&#38;#416;&#38;#628; &#38;#610;&#38;#618;&#38;#7843;&#38;#628;&#38;#60;/li&#38;#62;
+        &#38;#60;li&#38;#62;🛡️ Q&#38;#7452;&#38;#7424;&#38;#777;&#38;#628; &#38;#671;&#38;#253; s&#38;#7431;&#38;#640;&#38;#7456;&#38;#7431;&#38;#640; &#38;#7428;&#38;#668;&#38;#7452;&#38;#655;&#38;#202;&#38;#628; &#38;#628;&#38;#610;&#38;#668;&#38;#618;&#38;#7879;&#38;#7448;, &#38;#7428;&#38;#668;&#38;#7889;&#38;#628;&#38;#610; s&#38;#7448;&#38;#7424;&#38;#7437;&#38;#60;/li&#38;#62;
+    &#38;#60;/ul&#38;#62;
+&#38;#60;/div&#38;#62;
+
+&#38;#60;script&#38;#62;
+// Particles background
+const canvas = document.getElementById('stars');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const stars = [];
+for(let i=0;i&#38;#60;150;i++){
+    stars.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.5+0.5,
+        dx: (Math.random()-0.5)*0.5,
+        dy: (Math.random()-0.5)*0.5
+    });
+}
+
+function animateStars(){
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(s=&#38;#62;{
+        ctx.beginPath();
+        ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+        ctx.fillStyle = "white";
+        ctx.shadowColor = "#fff";
+        ctx.shadowBlur = 5;
+        ctx.fill();
+        s.x += s.dx;
+        s.y += s.dy;
+        if(s.x&#38;#60;0||s.x&#38;#62;canvas.width)s.dx*=-1;
+        if(s.y&#38;#60;0||s.y&#38;#62;canvas.height)s.dy*=-1;
+    });
+    requestAnimationFrame(animateStars);
+}
+animateStars();
+window.addEventListener('resize',()=&#38;#62;{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
+// Auto show social buttons v&#38;#7899;i delay
+const socialBtns = document.querySelectorAll('.social-btn');
+socialBtns.forEach((btn,i)=&#38;#62;{
+    setTimeout(()=&#38;#62;{
+        btn.style.opacity = 1;
+        btn.style.transform = 'translateY(0)';
+        btn.style.transition = 'all 0.7s ease';
+    }, i*500);
+});
+&#38;#60;/script&#38;#62;
+
+&#38;#60;/body&#38;#62;
+&#38;#60;/html&#38;#62;
